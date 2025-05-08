@@ -8,3 +8,22 @@ on:
       - main
     paths-ignore: 
       - .github/**
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print variables"
+        shell: python
+        run: |
+          import os
+          print(os.getenv("GITHUB_EVENT_NAME"))
+          print(os.getenv("GITHUB_REF"))
+      
+      - uses: actions/checkout@main
+
+      - name: "list"
+        shell: bash
+        run: tree
+        
+      
