@@ -16,20 +16,20 @@ on:
 
 jobs:
   Build:
-  runs-on: ubuntu-latest
-  steps:
-    - name: "Print variables"
-      shell: python
-      run: |
-        import os
-        print(os.getenv("GITHUB_EVENT_NAME"))
-        print(os.getenv("GITHUB_REF"))
-    
-    - uses: actions/checkout@main
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Print variables"
+        shell: python
+        run: |
+          import os
+          print(os.getenv("GITHUB_EVENT_NAME"))
+          print(os.getenv("GITHUB_REF"))
+      
+      - uses: actions/checkout@main
 
-    - name: "list"
-      shell: bash
-      run: tree
+      - name: "list"
+        shell: bash
+        run: tree
   Test:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
